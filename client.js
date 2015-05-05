@@ -5,10 +5,10 @@ var dgram = require('dgram');
 
 var Client = function () {
 
-	this.server = new Server();
-	this.port = 3000;
-	this.host = '127.0.0.1';
-	this.socket = dgram.createSocket('udp4');
+    this.server = new Server();
+    this.port = 3000;
+    this.host = '127.0.0.1';
+    this.socket = dgram.createSocket('udp4');
 
 };
 
