@@ -12,9 +12,9 @@ var Client = function () {
 
 };
 
-Client.prototype.send = function() {
+Client.prototype.send = function(operator,operand1,operand2) {
 
-    var msg = new Buffer([1,1,1]);
+    var msg = new Buffer([operator,operand1,operand2]);
 
     var that = this;
 
