@@ -14,7 +14,31 @@ var Server = function () {
     });
 
     this.socket.on('message', function(msg) {
-        console.log(msg);
+        
+        var operator = msg[0],
+            operand1 = msg[1],
+            operand2 = msg[2];
+
+        console.log();
+        console.log("ERGEBNIS:");
+
+        switch(operator) {
+            case 1:
+                console.log(operand1 + operand2);
+                break;
+            case 2:
+                console.log(operand1 - operand2);
+                break;
+            case 3: 
+                console.log(operand1 / operand2)
+                break;
+            case 4:
+                console.log(operand1 * operand2);
+                break;
+            default:
+                console.log("ERROR: undefined operation");
+        }
+
         that.socket.close();
     })
 

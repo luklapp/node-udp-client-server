@@ -14,12 +14,34 @@ var Client = function () {
 
 Client.prototype.send = function(operator,operand1,operand2) {
 
-    var msg = new Buffer([operator,operand1,operand2]);
+    switch(operator) {
+
+        case '+':
+            operator_byte = 1;
+            break;
+        case '-':
+            operator_byte = 2;
+            break;
+        case '/':
+            operator_byte = 3;
+            break;
+        case 'x':
+            operator_byte = 4;
+            break;
+        default:
+            operator_byte = 0;
+    }
+
+    var msg = new Buffer([operator_byte,operand1,operand2]);
 
     var that = this;
 
     this.socket.send(msg, 0, msg.length, this.port, this.host, function(error) {
         if(error) console.log(error);
+        else {
+            console.log("Send message to " + that.host + ":" + that.port);
+            console.log(msg);
+        }
         that.socket.close();
     });
 
