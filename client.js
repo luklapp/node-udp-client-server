@@ -2,10 +2,10 @@ var Server = require('./server.js');
 
 /* client.js */
 
-var Client = function (port) {
+var Client = function () {
 
 	this.server = new Server();
-	this.port = port;
+	this.port = 3000;
 
 };
 
